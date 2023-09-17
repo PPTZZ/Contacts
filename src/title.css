@@ -1,0 +1,8 @@
+.title{
+    font-family: 'SEGA LOGO FONT';
+    src: local('SEGA LOGO FONT'), url('/public/SEGA.woff') format('woff');
+    color: rgb(70, 219, 190);
+    font-size: 3rem;
+    font-weight: 400;
+
+}
