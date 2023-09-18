@@ -27,10 +27,13 @@ class App extends React.Component{
     }
 
     render(){
-        const filteredRobots = this.state.robots.filter(robot=>{
-            return robot.name.toLocaleLowerCase().includes(this.state.searchfield.toLocaleLowerCase())
+        const {robots, searchfield} = this.state
+        const filteredRobots = robots.filter(robot=>{
+            return robot.name.toLocaleLowerCase().includes(searchfield.toLocaleLowerCase())
         });
-        return (
+        return !robots.length ?
+        <h1 className="title">NO ROBOTS HERE</h1>:
+        (
             <div className="tc">
                 <h1 className="title">ROBOFRIENDS</h1>
                 <SearchBox searchChange={this.onSearchChange}/>
