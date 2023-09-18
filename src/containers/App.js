@@ -1,38 +1,34 @@
 import React from "react"
-import Scroll from './Scroll'
-import CardList from "./CardList"
-import SearchBox from "./SearchBox.js"
-import "./title.css"
+import Scroll from '../components/Scroll.js'
+import CardList from "../components/CardList.js"
+import SearchBox from "../components/SearchBox.js"
+import "./App.css"
 
 
 class App extends React.Component{
-
     constructor(){
         super();
         this.state ={
             robots: [],
             searchfield : '',
         }
-    }
 
+    }
     componentDidMount(){
         fetch('https://jsonplaceholder.typicode.com/users').then(response => {
             return response.json();
         }).then(users =>{
             this.setState({robots:users})
         })
-    
     }
 
     onSearchChange = (event) =>{
-        this.setState({searchfield: event.target.value});
-       
-        
+        this.setState({searchfield: event.target.value});  
     }
-    
+
     render(){
-        const filteredRobots = this.state.robots.filter(robots=>{
-            return robots.name.toLocaleLowerCase().includes(this.state.searchfield.toLocaleLowerCase())
+        const filteredRobots = this.state.robots.filter(robot=>{
+            return robot.name.toLocaleLowerCase().includes(this.state.searchfield.toLocaleLowerCase())
         });
         return (
             <div className="tc">
@@ -44,7 +40,6 @@ class App extends React.Component{
             </div>
         );
     }
-   
 }
 
 export default App;
