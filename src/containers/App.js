@@ -13,10 +13,11 @@ class App extends React.Component{
             robots: [],
             searchfield : '',
         }
-
     }
+
     componentDidMount(){
-        fetch('https://jsonplaceholder.typicode.com/users').then(response => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => {
             return response.json();
         }).then(users =>{
             this.setState({robots:users})
